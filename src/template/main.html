@@ -1,0 +1,12 @@
+<section class="main" id="main">
+  <div class="main-sort flex j-c-space-between">
+    <div class="main-choose">Сортировать по:</div>
+    <button class="main-chooseButton flex" id="priceSortButton" onclick="sortCats('price')">Цене<img class="main-arrow" id="priceSort" src="img/arrow.png"></button>
+    <button class="main-chooseButton flex" id="ageSortButton" onclick="sortCats('age')">Возрасту<img class="main-arrow" id="ageSort" src="img/arrow.png"></button>
+  </div>
+  <div class="main-list flex" id="catList"></div>
+  <div class="main-bottomBar flex j-c-center">
+    <button class="main-showMore" onclick="showNextCats(20)">Показать еще 20</button>
+  </div>
+  <button class="main-up" id="up" onclick="scrollToTop()"></button>
+</section>

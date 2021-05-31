@@ -1,0 +1,354 @@
+.main {
+  margin: 2.375rem auto 0;
+  width: 77.5rem;
+  max-width: 1240px;
+  font-family: 'Montserrat', sans-serif;
+
+  button:disabled {
+    background: #1F2021;
+    cursor: unset;
+    &:before {
+      background: transparent;
+    }
+  }
+
+  &-sort {
+    width: 28.25rem;
+    margin: 0 0 0 1.75rem;
+    position: relative;
+  }
+
+  &-choose {
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+  }
+
+  &-chooseButton {
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    letter-spacing: 1px;
+    position: relative;
+  }
+
+  &-arrow {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    margin: 0.25rem 0 0 0.25rem;
+  }
+
+  &-list {
+    margin: 2.250em auto 0;
+    flex-wrap: wrap;
+    padding: 0 1.25rem;
+  }
+
+  &-item {
+    width: 23.75rem;
+    position: relative;
+    margin:0 0.625rem 1.375rem;
+  }
+
+  &-discount {
+    position: absolute;
+    width: 4.875rem;
+    max-width: 78px;
+    height: 2.5rem;
+    max-height: 40px;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    background: #E52D2D;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 10px;
+    top: 7%;
+    left: 10%;
+  }
+
+  &-like {
+    position: absolute;
+    top: 8%;
+    right: 10%;
+    width: 3rem;
+    height: 2.625rem;
+    background: url("../img/like.svg");
+    background-size: cover;
+    border: none;
+  }
+
+  &-picture {
+    width: 100%;
+  }
+
+  &-infosWrapper {
+    background: #F3F3F3;
+    padding: 1.875rem 1.875rem 1.750rem 1.875rem;
+  }
+
+  &-name {
+    line-height: 1.875rem;
+    font-weight: 700;
+    min-height: 3.75rem;
+  }
+
+  &-agesWrapper, &-pawsWrapper, &-color {
+    width: 25.4%;
+  }
+
+  &-yearsOld, &-count {
+    line-height: 1.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  &-age, &-paws, &-color {
+    line-height: 0.938rem;
+    font-size: 0.75rem;
+  }
+
+  &-info {
+    width: 21.5rem;
+    margin: 1.375rem 0 0;
+  }
+
+  &-price {
+    margin: 1.188rem 0 0 0;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    font-weight: 700;
+  }
+
+  &-buy {
+    background: #6EBBD3;
+    border: none;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    font-family: inherit;
+    padding: 1.375rem 0;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    position: relative;
+    z-index: 1;
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #0b5375;
+      border-radius: 0 0 10px 10px;
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      -webkit-transform-origin: 50% 0;
+      transform-origin: 50% 0;
+      -webkit-transition-property: transform;
+      transition-property: transform;
+      -webkit-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+      -webkit-transition-timing-function: linear;
+      transition-timing-function: linear;
+    }
+  }
+
+  &-color {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      height: 1.625rem;
+      max-height: 26px;
+      width: 0.25rem;
+      max-width: 4px;
+      background: #6EBBD3;
+      left: -25%;
+    }
+
+  }
+
+  &-showMore {
+    width: 23.75rem;
+    max-width: 380px;
+    background: none;
+    border: 1px solid #CACACA;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    line-height: 1.063rem;
+    padding: 1.6rem 0;
+    margin: 3rem 0 0 0;
+    position: relative;
+    -webkit-transition-property: color, border-color;
+    transition-property: color, border-color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    z-index: 1;
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 10px;
+      background: #6EBBD3;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 0;
+      -webkit-transition-property: transform, opacity;
+      transition-property: transform, opacity;
+      -webkit-transition-duration: 0.2s;
+      transition-duration: 0.2s;
+      -webkit-transition-timing-function: ease-out;
+      transition-timing-function: ease-out;
+    }
+    &:active {
+      background: #2098D1;
+      color: #ffffff;
+    }
+  }
+
+  &-bottomBar {
+    width: inherit;
+    position: relative;
+  }
+
+  &-up {
+    display: none;
+    position: fixed;
+    width: 3.75rem;
+    height: 3.75rem;
+    right: 5%;
+    bottom: 5%;
+    background: #6EBBD3;
+    border: none;
+    &:before {
+      content: "❮";
+      transform: rotate(90deg);
+      position: absolute;
+      top: 16%;
+      left: 42%;
+      font-size: 1.875rem;
+      color: #ffffff;
+    }
+  }
+}
+
+.toBig {
+    transform: rotate(180deg);
+}
+
+.toLow {
+    transform: rotate(0deg);
+}
+
+.activeLike {
+  background: url("../img/liked.svg");
+}
+
+.sortInUse {
+  border-bottom: 2px solid black;
+}
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+  .main {
+    &-like {
+      &:hover {
+        background: url("../img/like-hover.svg");
+        animation: pulse 0.5s infinite;
+      }
+    }
+
+    &-buy {
+      &:hover {
+        &:before {
+          -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+          -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+          transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+        }
+      }
+    }
+
+    &-up {
+      &:hover {
+        &:before {
+          -webkit-animation-name: pulseUpArrow;
+          animation-name: pulseUpArrow;
+          -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+          -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+          -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+        }
+      }
+    }
+
+    &-showMore {
+      &:hover {
+        color: #ffffff;
+        border-color: transparent;
+        &:before {
+          opacity: 1;
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+
+}
+
+@media (min-width: 1440px) {
+
+}
+
+
+@-webkit-keyframes pulse {
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+}
+
+@keyframes pulse {
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+
+@-webkit-keyframes pulseUpArrow {
+  50% {
+      top: 10%
+  }
+
+}
+
+@keyframes pulseUpArrow {
+  50% {
+    top: 10%
+  }
+}

@@ -1,0 +1,50 @@
+@import "partials/utils";
+@import "partials/header";
+@import "partials/main";
+@import "partials/footer";
+@import "partials/favorites-modal";
+
+
+* {
+  box-sizing: border-box
+};
+
+body {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+@media (min-width: 576px) {
+  html {
+    font-size: 8px;
+  }
+
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1440px) {
+  html {
+    font-size: 16px;
+  }
+}
