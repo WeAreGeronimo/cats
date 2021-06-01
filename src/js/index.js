@@ -77,7 +77,9 @@ function randomCats(count) {
     }
 
 }
+
 randomCats(349);
+
 let quantity = 0;
 
 
@@ -156,6 +158,7 @@ document.addEventListener('scroll', function(e) {
     }
 });
 let scrollSpeed = 0.94;
+
 function scrollToTop(){
 
     if(scrolled > 10) {
@@ -242,6 +245,7 @@ function validateEmail(email) {
 
 const emailInput = document.getElementById('emailForNews');
 const tips = document.getElementById('tips');
+
 emailInput.addEventListener('change', updateValue);
 
 emailInput.addEventListener('click', () => {
@@ -267,10 +271,6 @@ function subscribeToNews() {
         emailInput.style.background = '#ff8585';
     }
 }
-
-
-
-
 
 //= itemsGenerator.js
 //= burgerMenu.js
