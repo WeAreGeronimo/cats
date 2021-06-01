@@ -24,12 +24,12 @@ function itemsGenerator(array, quantity) {
                         <div class="main-info flex j-c-space-evenly">
                           <div class="main-color" title="">${item.color}</div>
                           <div class="main-agesWrapper">
-                            <span class="main-yearsOld block">${item.age} мес.</span>
                             <span class="main-age block">Возраст</span>
+                            <span class="main-yearsOld block">${item.age} мес.</span>
                           </div>
                           <div class="main-pawsWrapper">
-                            <div class="main-count block">${item.paws}</div>
                             <div class="main-paws block">Кол-во лап</div>
+                            <div class="main-count block">${item.paws}</div>
                           </div>
                         </div>
                         <div class="main-price">${item.price} руб.</div>

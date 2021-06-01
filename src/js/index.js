@@ -262,9 +262,13 @@ function updateValue(e) {
 function subscribeToNews() {
     if(validateEmail(emailValue)) {
         console.log('correct email');
+        document.getElementById('accept').style.display = 'block';
+        document.getElementById('subscribe').disabled = true;
+        document.getElementById('subscribe').innerText = 'Спасибо!'
         emailInput.style.background = '#a6e269';
     } else {
         console.log('incorrect email');
+        document.getElementById('accept').style.display = 'none';
         tips.innerText = 'Введите, пожалуйста, действительный Email!';
         emailInput.style.background = '#ff8585';
     }

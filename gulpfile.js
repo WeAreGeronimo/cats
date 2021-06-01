@@ -87,7 +87,7 @@ function style () {
             includePaths: ['.'],
             onError: console.error.bind(console, 'Sass error:')
         }))
-        .pipe(prefixer())
+        .pipe(prefixer({browsers: ['last 2 versions']}))
         .pipe(cssmin())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css))

@@ -115,27 +115,44 @@
   }
 }
 
-@media (min-width: 319px) and (max-width: 767px) {
+@media screen and (min-width: 279px) and (max-width: 927px) and (orientation: portrait), (min-height: 279px) and (max-height: 541px) and (orientation: landscape) {
   .footer {
     flex-wrap: wrap;
     width: 100%;
 
-    &-buy {
-      width: unset;
-      margin: 2rem 0;
+    &-container {
+      flex-direction: column;
+      width: 100%;
     }
 
-    &-container {
+    &-subscribe, &-emailsWrapper, &-buy {
       width: 80%;
     }
 
+    &-buy {
+      margin: 2rem 0;
+    }
+
     &-emailsWrapper, &-subscribe {
-      margin: 5.688rem auto;
-      width: 45%;
+      margin: 0 auto 2rem;
     }
 
     &-email {
       width: 100%;
+    }
+
+   #accept {
+        position: absolute;
+        display: block;
+        left: 1%;
+        font-size: 24px;
+        top: 8%;
+        color: green;
+   }
+
+    &-tips {
+      top: -26%;
+      color: #ef9494;
     }
 
   }
