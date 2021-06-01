@@ -87,6 +87,15 @@
     }
   }
 
+  #accept {
+    position: absolute;
+    display: block;
+    left: 1%;
+    font-size: 1.5rem;
+    top: 14%;
+    color: green;
+  }
+
   &-newsSubscribe {
     font-size: 0.875rem;
     color: #ffffff;
@@ -141,15 +150,6 @@
       width: 100%;
     }
 
-   #accept {
-        position: absolute;
-        display: block;
-        left: 1%;
-        font-size: 24px;
-        top: 8%;
-        color: green;
-   }
-
     &-tips {
       top: -26%;
       color: #ef9494;
@@ -158,10 +158,19 @@
   }
 }
 
-@media (min-width: 1200px) {
- .footer {
+@media only screen and (width: 280px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 3) {
 
- }
+  .footer {
+    margin: 0;
+    &-tips {
+      top: -40%;
+    }
+
+    &-buy {
+      margin: 2rem 0 3rem;
+    }
+
+  }
 }
 
 @media (min-width: 992px) {
@@ -181,14 +190,6 @@
     }
   }
 }
-}
-
-@media (min-width: 768px) {
-
-}
-
-@media (min-width: 576px) {
-
 }
 
 

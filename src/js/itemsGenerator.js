@@ -16,7 +16,7 @@ function itemsGenerator(array, quantity) {
                       <img class="main-picture block" src="${item.src}">
                       <div class="main-infosWrapper">
                         <div class="main-name" 
-                             style="${item.name.length > 30 ?
+                             style="${item.name.length > 24 ?
                                 'font-size: 1rem; line-height: 1.2rem;'
                                 :
                                 'font-size: 1.5rem; line-height: 1.875rem;' }"

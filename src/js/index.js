@@ -103,7 +103,7 @@ showNextCats(6);
 let favoritesCats = [];
 let timer;
 
-function toggleFavorites(idFromObject, indexInArray) {
+function toggleFavorites(idFromObject) {
     let isNeedDelete = true;
     const favoritesModal = document.getElementById('favorites-modal');
     if(!(favoritesCats.indexOf(idFromObject) > -1)) {
