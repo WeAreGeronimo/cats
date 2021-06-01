@@ -1,16 +1,21 @@
-<section class="header margin-0-auto">
-  <div class="header-upper flex j-c-space-between">
+<section class="header margin-0-auto flex j-c-space-evenly">
+
     <img class="header-logo" src="img/logo.png">
-    <div class="header-menu flex">
-      <a class="header-hrefs flex a-i-center j-c-center" href="#">Main</a>
-      <a class="header-hrefs flex a-i-center j-c-center" href="#">Gallery</a>
-      <a class="header-hrefs flex a-i-center j-c-center" href="#">News</a>
-      <a class="header-hrefs flex a-i-center j-c-center" href="#">Profile</a>
+    <div class="header-menuWrapper flex j-c-space-between" id="menuWrapper">
+      <div class="header-menu flex">
+        <a class="header-hrefs flex a-i-center j-c-center" href="#">Main</a>
+        <a class="header-hrefs flex a-i-center j-c-center" href="#">Gallery</a>
+        <a class="header-hrefs flex a-i-center j-c-center" href="#">News</a>
+        <a class="header-hrefs flex a-i-center j-c-center" href="#">Profile</a>
+      </div>
+      <div class="header-call">
+        <a class="header-phone" href="tel:+544 3490 000000">+544 3490 000000</a>
+        <div class="header-callUs">Звони скорее!</div>
+      </div>
     </div>
-    <div class="header-call">
-      <a class="header-phone" href="tel:+544 3490 000000">+544 3490 000000</a>
-      <div class="header-callUs">Звони скорее!</div>
-    </div>
-  </div>
-  <div class="header-bottom">Найдено 349 котов</div>
+
+  <div class="header-bottom"><span>Найдено 349 котов<span></div>
+  <button class="header-burgerMenu block" id="burgerButton" onclick="openMenu()">
+    <div class="header-buttonPart"></div>
+  </button>
 </section>

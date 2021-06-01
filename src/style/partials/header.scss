@@ -7,6 +7,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+  flex-wrap: wrap;
   &:after {
     content: '';
     background: rgba(31,32,33,0.79);
@@ -15,6 +16,18 @@
     left: 0;
     right: 0;
     position: absolute;
+  }
+
+  &-menuWrapper {
+    width: 67%;
+  }
+
+  &-menuWrapper, &-logo {
+    z-index: 1;
+  }
+
+  &-burgerMenu {
+    display: none;
   }
 
   &-upper {
@@ -44,6 +57,7 @@
       content: "";
       position: absolute;
       z-index: -1;
+      left: 0;
       width: 100%;
       transform: scaleX(0);
       bottom: 25%;
@@ -97,6 +111,7 @@
 
   &-bottom {
     position: relative;
+    width: 100%;
     font-weight: 700;
     font-size: 2.375em;
     line-height: 2.875em;
@@ -107,15 +122,130 @@
 
 }
 
+@media (min-width: 319px) and (max-width: 767px) {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+    &:after {
+      width: 100vw;
+    }
+
+    &-upper {
+      margin: 0;
+    }
+
+    &-menuWrapper {
+      position: absolute;
+      height: 200px;
+      top: -400%;
+      justify-content: space-evenly;
+      width: inherit;
+      transition: all 0.3s ease-out 0s;
+      z-index: 3;
+      background: url("../img/header.png") no-repeat center;
+      background-size: cover;
+      &:after {
+        content: '';
+        background: rgba(31,32,33,0.79);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+      }
+    }
+
+    &-menu {
+      flex-direction: column;
+    }
+
+    &-hrefs {
+      width: unset;
+      margin: 0.5rem 0;
+    }
+
+    &-menuWrapper.openMenu {
+      top:0;
+    }
+
+    &-burgerMenu {
+      display: block;
+      width: 50px;
+      height: 50px;
+      position: relative;
+      z-index: 4;
+      background: none;
+      border: none;
+      padding: 0;
+
+      &:before, &:after {
+        transition: all 0.3s ease-in;
+        content: '';
+        display: block;
+        width: inherit;
+        height: 4px;
+        background: white;
+        border-radius: 5px;
+        position: absolute;
+      }
+    }
+
+    &-burgerMenu:before {
+      top: 12px;
+    }
+
+    &-buttonPart {
+      transition: all 0.5s ease-out;
+      top: 24px;
+      position: absolute;
+      width: inherit;
+      height: 4px;
+      background: white;
+      border-radius: 5px;
+    }
+
+    &-burgerMenu:after {
+      top: 36px;
+    }
+
+    &-burgerMenu.openMenu  {
+        &:before {
+          transform: rotate(45deg);
+          top: 25px;
+        }
+
+        .header-buttonPart {
+          transform: rotate(20deg) translateX(100px) scale(0);
+        }
+
+        &:after {
+          top: 25px;
+          transform: rotate(-45deg);
+        }
+    }
+
+    &-bottom {
+      width: auto;
+      margin: 0;
+    }
+
+    &-call {
+      align-self: flex-end;
+    }
+
+  }
+
+
+}
+
 @media (min-width: 576px) {
 
 }
 
 @media (min-width: 768px) {
-  .header {
-
-  }
-
 
 }
 

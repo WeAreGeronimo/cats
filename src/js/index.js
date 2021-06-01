@@ -1,9 +1,10 @@
-const catsArray = [];
 const catsArrayFromBackend = [];
-const listsElements = document.getElementById('catList');
 
+const listsElements = document.getElementById('catList');
+const nextCatsButton = document.getElementById('nextCats')
 
 function randomCats(count) {
+    let id = 1;
     for(let i = 0; i < count; i++) {
         function getRandomNumber(min, max) {
             return Math.floor(min + Math.random() * (max + 1 - min));
@@ -62,7 +63,7 @@ function randomCats(count) {
                 break;
         }
         catsArrayFromBackend.push({
-            id: catsArrayFromBackend.length + 1,
+            id: id++,
             discount: discount,
             liked: false,
             src: `img/cat${getRandomNumber(1, 3)}.png`,
@@ -76,30 +77,33 @@ function randomCats(count) {
     }
 
 }
-randomCats(359);
+randomCats(349);
+let quantity = 0;
 
 
 function showNextCats(count) {
-    let length = catsArray.length;
-    if((catsArrayFromBackend.length - catsArray.length) < count) {
-        for(let i = length; i < catsArrayFromBackend.length; i++) {
-            catsArray.push(catsArrayFromBackend[i]);
-        }
+    quantity += count;
+    console.log('quantity', quantity);
+    console.log('catsArrayFromBackend', catsArrayFromBackend);
+    if(catsArrayFromBackend.length <= quantity) {
+        quantity = catsArrayFromBackend.length;
+        listsElements.innerHTML = itemsGenerator(catsArrayFromBackend, quantity).join("");
+        console.log('end massive')
+        nextCatsButton.style.display = 'none';
     } else {
-        for(let i = length; i < (count + length); i++) {
-            catsArray.push(catsArrayFromBackend[i]);
-        }
+        listsElements.innerHTML = itemsGenerator(catsArrayFromBackend, quantity).join("");
+        console.log('not end massive')
     }
-    listsElements.innerHTML = itemsGenerator(catsArray).join("");
+
 }
 
-
 showNextCats(6);
+
 
 let favoritesCats = [];
 let timer;
 
-function toggleFavorites(idFromObject) {
+function toggleFavorites(idFromObject, indexInArray) {
     let isNeedDelete = true;
     const favoritesModal = document.getElementById('favorites-modal');
     if(!(favoritesCats.indexOf(idFromObject) > -1)) {
@@ -109,7 +113,7 @@ function toggleFavorites(idFromObject) {
         });
         isNeedDelete = false;
         console.log('pushed', favoritesCats);
-        simpleProxyForLike(catsArray, idFromObject - 1, 'liked', true);
+        simpleProxyForLike(catsArrayFromBackend, idFromObject, 'liked', true);
         favoritesModal.style.display = 'flex';
         favoritesModal.innerHTML = `<div>Добавлено в избранное! ${favoritesCats.length ? `В избранном ${favoritesCats.length}` : "Лист пуст."}</div>`;
     }
@@ -120,7 +124,7 @@ function toggleFavorites(idFromObject) {
             return a - b;
         });
         console.log('deleted', favoritesCats);
-        simpleProxyForLike(catsArray, idFromObject - 1, 'liked', false);
+        simpleProxyForLike(catsArrayFromBackend, idFromObject, 'liked', false);
         favoritesModal.style.display = 'flex';
         favoritesModal.innerHTML = `<div>Удалено из избранного! ${favoritesCats.length ? `В избранном ${favoritesCats.length}` : "Лист пуст."}</div>`;
     }
@@ -132,16 +136,13 @@ function toggleFavorites(idFromObject) {
 
 }
 
-function simpleProxyForLike(array, indexInArray, property, value) {
-    if(indexInArray > array.length) {
-        throw new Error("Index larger than array length!");
-    }
-    if(!array[indexInArray].hasOwnProperty(property)) {
-        throw new Error("This property does not exist");
-    }
-    if(array[indexInArray][property] != value) {
-        array[indexInArray][property] = value;
-        listsElements.innerHTML = itemsGenerator(catsArray).join('');
+function simpleProxyForLike(array, objId, property, value) {
+    for(let key in array) {
+        if(array[key].id == objId) {
+            array[key][property] = value;
+            listsElements.innerHTML = itemsGenerator(catsArrayFromBackend, quantity).join('');
+        }
+
     }
 }
 
@@ -183,9 +184,6 @@ function sortCats(criteria) {
     if(criteria == 'price') {
         switch (sortingPriceCriteria) {
             case "toHighPrice": {
-                catsArray.sort(function (itemA, itemB) {
-                    return itemA.price - itemB.price;
-                });
                 catsArrayFromBackend.sort(function (itemA, itemB) {
                     return itemA.price - itemB.price;
                 });
@@ -197,9 +195,6 @@ function sortCats(criteria) {
             };
             break;
             case "toLowPrice": {
-                catsArray.sort(function (itemA, itemB) {
-                    return itemB.price - itemA.price;
-                });
                 catsArrayFromBackend.sort(function (itemA, itemB) {
                     return itemB.price - itemA.price;
                 });
@@ -216,11 +211,8 @@ function sortCats(criteria) {
     if(criteria == 'age') {
         switch (sortingAgeCriteria) {
             case "toHighAge": {
-                catsArray.sort(function (itemA, itemB) {
+                catsArrayFromBackend.sort(function (itemA, itemB) {
                     return itemA.age - itemB.age;
-                });
-                catsArray.sort(function (itemA, itemB) {
-                    return itemA.price - itemB.price;
                 });
                 sortingAgeCriteria = "toLowAge";
                 document.getElementById('priceSortButton').classList.remove('sortInUse');
@@ -231,11 +223,8 @@ function sortCats(criteria) {
             };
                 break;
             case "toLowAge": {
-                catsArray.sort(function (itemA, itemB) {
-                    return itemB.age - itemA.age;
-                });
                 catsArrayFromBackend.sort(function (itemA, itemB) {
-                    return itemB.price - itemA.price;
+                    return itemB.age - itemA.age;
                 });
                 sortingAgeCriteria = "toHighAge";
                 document.getElementById('priceSortButton').classList.remove('sortInUse');
@@ -247,7 +236,43 @@ function sortCats(criteria) {
         }
     }
 
-    listsElements.innerHTML = itemsGenerator(catsArray).join('');
+    listsElements.innerHTML = itemsGenerator(catsArrayFromBackend, quantity).join('');
 }
 
+function validateEmail(email) {
+    let regexp = /\S+@\S+\.\S+/;
+    return regexp.test(email);
+}
+
+const emailInput = document.getElementById('emailForNews');
+const tips = document.getElementById('tips');
+emailInput.addEventListener('change', updateValue);
+
+emailInput.addEventListener('click', () => {
+    emailInput.style.background = '#ffffff';
+    tips.innerText = '';
+});
+
+let emailValue;
+
+function updateValue(e) {
+   emailValue = e.target.value;
+}
+
+function subscribeToNews() {
+    if(validateEmail(emailValue)) {
+        console.log('correct email');
+        emailInput.style.background = '#a6e269';
+    } else {
+        console.log('incorrect email');
+        tips.innerText = 'Введите, пожалуйста, действительный Email!';
+        emailInput.style.background = '#ff8585';
+    }
+}
+
+
+
+
+
 //= itemsGenerator.js
+//= burgerMenu.js

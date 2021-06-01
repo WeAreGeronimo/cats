@@ -17,9 +17,15 @@ button {
   cursor: pointer;
 }
 
+@media screen and (min-width: 310px){
+  html {
+    font-size: 10px;
+  }
+}
+
 @media (min-width: 576px) {
   html {
-    font-size: 8px;
+    font-size: 14px;
   }
 
 }

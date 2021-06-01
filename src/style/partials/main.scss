@@ -72,11 +72,11 @@
 
   &-like {
     position: absolute;
-    top: 8%;
-    right: 10%;
-    width: 3rem;
-    height: 2.625rem;
-    background: url("../img/like.svg");
+    background: transparent;
+    top: 6%;
+    right: 7%;
+    width: 3.75rem;
+    height: 2.75rem;
     background-size: cover;
     border: none;
   }
@@ -231,6 +231,7 @@
     bottom: 5%;
     background: #6EBBD3;
     border: none;
+    z-index: 10;
     &:before {
       content: "❮";
       transform: rotate(90deg);
@@ -251,27 +252,44 @@
     transform: rotate(0deg);
 }
 
-.activeLike {
-  background: url("../img/liked.svg");
-}
-
 .sortInUse {
   border-bottom: 2px solid black;
 }
 
-@media (min-width: 576px) {
-
+@media (min-width: 319px) and (max-width: 767px) {
+  .main {
+    padding: 80px 0 0 0;
+    width: 95%;
+    &-list {
+      width: 95%;
+      flex-wrap: wrap;
+    }
+    &-item {
+      width: 45%;
+      margin: 0 auto 1.375rem;
+    }
+  }
 }
 
-@media (min-width: 768px) {
-
+@media (max-width: 767px) {
+  .header {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+  }
 }
 
 @media (min-width: 992px) {
   .main {
+    &-heart {
+      &:hover {
+        fill-opacity: 0.5;
+      }
+    }
+
     &-like {
       &:hover {
-        background: url("../img/like-hover.svg");
+        //background: url("../img/like-hover.svg");
         animation: pulse 0.5s infinite;
       }
     }
