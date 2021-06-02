@@ -10,7 +10,7 @@ function itemsGenerator(array, quantity) {
                  fill="${item.liked ? "red" : "white"}" fill-opacity="${item.liked ? "0.8" : "0.5"}" stroke="black" stroke-opacity="0.5"/>
 </svg>`
         return  `<div class="main-item" id="item_${item.id}">
-                      <button class="main-like" onclick="toggleFavorites(${item.id}, ${idx})">${heart}</button>
+                      <button class="main-like" onclick="toggleFavorites(${item.id})">${heart}</button>
                       <div class="main-discount flex j-c-center a-i-center"
                            style="${item.discount ? '' : 'display: none'}">${item.discount}</div>
                       <img class="main-picture block" src="${item.src}">
