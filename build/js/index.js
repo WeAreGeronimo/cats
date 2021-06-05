@@ -329,7 +329,6 @@ function itemsGenerator(array, quantity) {
     return i < quantity;
   });
   return filteredArray.map(function (item, idx) {
-    console.log('generated');
     return template(item, idx);
   });
 }

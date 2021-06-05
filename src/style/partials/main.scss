@@ -299,6 +299,11 @@
       flex-wrap: wrap;
     }
 
+    &-like {
+      width: 4.75rem;
+      height: 3.75rem;
+    }
+
     &-picture {
       border-radius: 10px 10px 0 0;
     }
@@ -309,8 +314,7 @@
     }
 
     &-sort {
-      width: unset;
-      margin: unset;
+      margin: 0 0 0 1rem;
     }
 
     &-agesWrapper, &-color, &-pawsWrapper {
@@ -388,7 +392,7 @@
   }
 
   .main {
-    padding: 1rem 0 0;
+    padding: 4rem 0 0;
     width: 100%;
 
     &-item {

@@ -43,7 +43,6 @@ function itemsGenerator(array, quantity) {
     })
 
     return filteredArray.map((item, idx)  => {
-        console.log('generated');
         return template(item, idx);
     });
 
