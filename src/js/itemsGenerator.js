@@ -21,7 +21,7 @@ function itemsGenerator(array, quantity) {
                                 :
                                 'font-size: 1.5rem; line-height: 1.875rem;' }"
                              >${item.name}</div>
-                        <div class="main-info flex j-c-space-evenly">
+                        <div class="main-info flex j-c-space-around">
                           <div class="main-color" title="">${item.color}</div>
                           <div class="main-agesWrapper">
                             <span class="main-age block">Возраст</span>
@@ -38,7 +38,7 @@ function itemsGenerator(array, quantity) {
                      </div>`
     };
 
-    let filteredArray = array.filter(function (item, i) {
+    const filteredArray = array.filter(function (item, i) {
         return i < quantity
     })
 
