@@ -69,36 +69,36 @@ function isInclude(array, catsId) {
 
 function randomCats(count) {
   var id = 1;
+  var catsBreeds = {
+    1: "Азиатская кошка",
+    2: "Той-бобтейл",
+    3: "Дракон Ли, Ли Хуа ( Ли Мао )",
+    4: "Американская многопалая кошка",
+    5: "Кольцехвостая кошка (Американский рингтейл)",
+    6: "Кохона (Гавайская бесшерстная кошка)",
+    7: "Персидская кошка",
+    8: "Эгейская кошка",
+    9: "Рагамаффин",
+    10: "Анатолийская короткошерстная кошка (Турецкая короткошерстная кошка)"
+  };
+  var catsColors = {
+    1: "Темный окрас",
+    2: "Дымчатый окрас",
+    3: "Полосатый хвост",
+    4: "Кольцевой окрас",
+    5: "Трехцветный окрас",
+    6: "Белый окрас",
+    7: "Многоцветный окрас",
+    8: "Полосатый окрас",
+    9: "Пятнистый окрас",
+    10: "Однотонный окрас"
+  };
+
+  function getRandomNumber(min, max) {
+    return Math.floor(min + Math.random() * (max + 1 - min));
+  }
 
   for (var i = 0; i < count; i++) {
-    var getRandomNumber = function getRandomNumber(min, max) {
-      return Math.floor(min + Math.random() * (max + 1 - min));
-    };
-
-    var catsBreeds = {
-      1: "Азиатская кошка",
-      2: "Той-бобтейл",
-      3: "Дракон Ли, Ли Хуа ( Ли Мао )",
-      4: "Американская многопалая кошка",
-      5: "Кольцехвостая кошка (Американский рингтейл)",
-      6: "Кохона (Гавайская бесшерстная кошка)",
-      7: "Персидская кошка",
-      8: "Эгейская кошка",
-      9: "Рагамаффин",
-      10: "Анатолийская короткошерстная кошка (Турецкая короткошерстная кошка)"
-    };
-    var catsColors = {
-      1: "Темный окрас",
-      2: "Дымчатый окрас",
-      3: "Полосатый хвост",
-      4: "Кольцевой окрас",
-      5: "Трехцветный окрас",
-      6: "Белый окрас",
-      7: "Многоцветный окрас",
-      8: "Полосатый окрас",
-      9: "Пятнистый окрас",
-      10: "Однотонный окрас"
-    };
     catsArrayFromBackend.push({
       id: id++,
       discount: getRandomNumber(0, 1) ? "-".concat(getRandomNumber(1, 40), "%") : '',
@@ -222,7 +222,7 @@ function sortCats(criteria) {
           catsArrayFromBackend.sort(function (itemA, itemB) {
             return itemA.age - itemB.age;
           });
-          classSettings[sortingPriceCriteria]();
+          classSettings[sortingAgeCriteria]();
           sortingAgeCriteria = "TO_LOW_AGE";
         }
         ;
@@ -233,7 +233,7 @@ function sortCats(criteria) {
           catsArrayFromBackend.sort(function (itemA, itemB) {
             return itemB.age - itemA.age;
           });
-          classSettings[sortingPriceCriteria]();
+          classSettings[sortingAgeCriteria]();
           sortingAgeCriteria = "TO_HIGH_AGE";
         }
         ;

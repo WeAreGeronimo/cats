@@ -208,7 +208,7 @@ function sortCats(criteria) {
                 catsArrayFromBackend.sort(function (itemA, itemB) {
                     return itemA.age - itemB.age;
                 });
-                classSettings[sortingPriceCriteria]();
+                classSettings[sortingAgeCriteria]();
                 sortingAgeCriteria = "TO_LOW_AGE";
 
             };
@@ -217,7 +217,7 @@ function sortCats(criteria) {
                 catsArrayFromBackend.sort(function (itemA, itemB) {
                     return itemB.age - itemA.age;
                 });
-                classSettings[sortingPriceCriteria]();
+                classSettings[sortingAgeCriteria]();
                 sortingAgeCriteria = "TO_HIGH_AGE";
             };
                 break;
